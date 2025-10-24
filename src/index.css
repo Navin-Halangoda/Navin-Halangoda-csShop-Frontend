@@ -3,6 +3,7 @@
   --color-primmary: #EEEEEE; 
   --color-secondary: #000000; 
   --color-accent: #87a1c4; 
+  --color-org: #e96a35;
 }
 
 /* In your global CSS file (e.g., styles/globals.css) */

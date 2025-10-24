@@ -6,6 +6,7 @@ import Login from './pages/Login.jsx'
 import Register from './pages/Register.jsx'
 import Admin from './pages/Adimn.jsx'
 import Test from './pages/Test.jsx'
+import { Toaster } from 'react-hot-toast'
 
 
 
@@ -15,6 +16,7 @@ function App() {
   return (
    
     <BrowserRouter>
+      <Toaster position='top-right'/>
       <div className='w-full h-screen bg-primmary text-secondary'>
       <Routes path="/">
         <Route path='/*'element={<Homepage/>}/>

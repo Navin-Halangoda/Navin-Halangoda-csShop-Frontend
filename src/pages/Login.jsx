@@ -16,11 +16,13 @@ export default function Login() {
         password:password
       })
       console.log(res);
+      localStorage.setItem("token",res.data.token)
       
       if(res.data.role=="admin"){
         navigate("/admin")
       }else{
         navigate("/")
+        
       }
       toast.success("Login succesfully");
     }
@@ -64,7 +66,7 @@ export default function Login() {
             onClick={login}
             className="w-full h-[50px] bg-org text-primmary rounded-lg border-2 border-accent font-bold text-[25px] hover:bg-transparent hover:text-secondary">Login</button>
 
-          <p className="text-primmary">Don't have an account? <Link to="<Register" className="italic">Register hear</Link></p>
+          <p className="text-primmary">Don't have an account? <Link to="/register" className="italic">Register hear</Link></p>
 
         </div>
       </div>

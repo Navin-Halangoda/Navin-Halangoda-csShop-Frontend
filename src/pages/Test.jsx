@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
+import UploadFile from '../utils/mediaUpload.js';
+
 
 export default function Test() {
+  const[files,setfiles]=useState(null)
+
+  async function handelfile(){
+    const url=await UploadFile(files)
+    console.log(url);
+    
+  }
   return (
-    <div className='w-[600px] h-[600px] p-[50px] bg-pink-600'>
-      <div className='w-[100px] h-[100px] ml-1.5 bg-green-500'></div>
-      <div className='w-[100px] h-[100px] mr-3 bg-blue-500'></div>
-      <div className='w-[100px] h-[100px] m-[30px] bg-red-500'></div>
-      <div className='w-[100px] h-[100px] bg-black'></div>
+    <div className='w-full h-full flex items-center justify-center' >
+      <input type='file' onChange={(e)=>{
+        setfiles(e.target.files[0])
+      }}/>
+
+      <button className='p-[20px] bg-accent hover:bg-blue-700' onClick={handelfile}>Upload</button>
     </div>
   )
 }

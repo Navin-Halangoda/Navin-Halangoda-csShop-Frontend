@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { BiPlus } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import ProductDeleteButton from "../../component/ProductDleteButoon";
+import Loder from "../../component/Loder";
 
 export default function Adminproduct(){
     const [products,setproduct] = useState([]);
@@ -136,8 +137,11 @@ export default function Adminproduct(){
                                                         </span>
                                                     </div>
                                                 </td>
-                                                <td className="px-6 py-4">
+                                                <td className="px-6 py-4 ">
+                                                    <div className=" gap-2 flex" >
+                                                    <Link to="update-product" className="p-[8px] px-3 rounded-xl bg-accent hover:bg-accent2" state={item}>Edit</Link>
                                                     <ProductDeleteButton productId={item.productId} relode={()=>{setloaded(false)}}/>
+                                                    </div>
                                                 </td>
                                             </tr> 
                                         )  
@@ -154,7 +158,7 @@ export default function Adminproduct(){
                         Showing <span className="font-semibold text-secondary">{products.length}</span> product{products.length !== 1 ? 's' : ''}
                     </p>
                 </div>
-            </div>:<div className="w-full h-screen fixed top-0 left-0 bg-black/70 flex items-center justify-center"><div className="w-[70px] h-[70px] border-4 border-accent2 border-t-transparent rounded-full animate-spin"></div></div>}
+            </div>:<Loder/>}
 
             {/* Floating Add Button */}
             <Link 

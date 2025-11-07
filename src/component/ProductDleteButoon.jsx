@@ -43,14 +43,3 @@ export default function ProductDeleteButton(props){
     )
 }
 
-{/* <button className="w-[80px] h-[50px] p-2 bg-red-500 hover:bg-red-700 text-white rounded-lg cursor-pointer" onClick={()=>{
-    const token= localStorage.getItem("token")
-    axios.delete(import.meta.env.VITE_BACKEND_URI+"/product/"+item.productId,{
-        headers:{
-            Authorization:`Bearer ${token}`
-        }
-    }).then((res)=>{
-        toast.success(res.data.message)
-        setloaded(false)
-    })
-}}>Delete</button> */}

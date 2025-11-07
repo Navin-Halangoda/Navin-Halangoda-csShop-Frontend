@@ -5,6 +5,7 @@ import { MdOutlineRateReview } from "react-icons/md";
 import { LuUsersRound } from "react-icons/lu";
 import Adminproduct from "./adminpages/Adminproduct.jsx";
 import Adminaddproduct from "./adminpages/Adminaddproduct.jsx";
+import Adminupdateproduct from "./adminpages/Adminupdateproduct.jsx";
 
 export default function Admin(){
     return(
@@ -28,6 +29,7 @@ export default function Admin(){
                         <Route path="/" element={<h1>order</h1>}/>
                         <Route path="/product" element={<Adminproduct/>}/>
                         <Route path="product/add-product" element={<Adminaddproduct/>}/>
+                        <Route path="/product/update-product" element={<Adminupdateproduct/>}/>
                         <Route path="/user" element={<h1>user</h1>}/>
                         <Route path="/review" element={<h1>review</h1>}/>
                     </Routes>

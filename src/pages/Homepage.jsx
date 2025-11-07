@@ -1,5 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Header from "../component/Header.jsx";
+import Productpage from "./Productpage.jsx";
+import Productoverview from "./Productoverview.jsx";
 
 export default function Homepage(){
     return(
@@ -10,7 +12,8 @@ export default function Homepage(){
                     <Route path="/" element={<h1>home</h1>}/>
                     <Route path="/abouth" element={<h1>abouth us</h1>}/>
                     <Route path="/contact" element={<h1>contact</h1>}/>
-                    <Route path="/product" element={<h1>product</h1>}/>
+                    <Route path="/product" element={<Productpage/>}/>
+                    <Route path="/overview/:productId" element={<Productoverview/>}/>
                     <Route path="/*" element={<h1>page not found</h1>}/>
                 </Routes>
             </div>            

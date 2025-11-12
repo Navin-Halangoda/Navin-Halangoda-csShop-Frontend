@@ -41,7 +41,7 @@ export default function Adminupdateproduct(){
             imagepromise.push(promise)
         }
 
-        const images= await Promise.all(imagepromise)
+        let images= await Promise.all(imagepromise)
 
         if(images.length==0){
             images=location.state.images

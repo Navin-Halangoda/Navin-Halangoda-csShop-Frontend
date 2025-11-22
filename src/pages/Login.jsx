@@ -17,13 +17,17 @@ export default function Login() {
       })
       console.log(res);
       localStorage.setItem("token",res.data.token)
+
+      if(!res.data.token){
+        toast.error("invalid username or password")
+        return
+      }
       
       if(res.data.role=="admin"){
         navigate("/admin")
       }else{
-        navigate("/")
-        
-      }
+        navigate("/") 
+      } 
       toast.success("Login succesfully");
     }
     catch(err){

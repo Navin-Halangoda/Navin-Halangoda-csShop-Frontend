@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { BiPlus } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import Loder from "../../component/Loder";
+import Vieworderinfo from "../../component/Vieworderinfo";
 
 export default function Adminorder(){
     const [orders,setorders] = useState([]);
@@ -100,7 +101,7 @@ export default function Adminorder(){
                                                 </td>
                                                 <td className="px-6 py-4 ">
                                                     <div className=" gap-2 flex" >
-                                                    <Link to="#" className="p-[8px] px-3 rounded-xl bg-accent hover:bg-accent2">Edit</Link>
+                                                    <Vieworderinfo order={order}/>
                                                     
                                                     </div>
                                                 </td>

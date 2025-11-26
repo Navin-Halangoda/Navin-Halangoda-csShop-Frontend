@@ -3,13 +3,41 @@ import Register from "./Register";
 import { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { GrGoogle } from "react-icons/gr";
+import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
 
 export default function Login() {
   const [email,setemail]= useState("")
   const [password,setpassword]=useState("")
   const navigate = useNavigate();
+  const[isloading,setIsloading]=useState(false)
+  const googleloging =useGoogleLogin({
+    onSuccess:(response)=>{
+      setIsloading(true);
+      axios.post(import.meta.env.VITE_BACKEND_URI+"/user/googleloging",{
+        token:response.access_token,
+      }).then((res)=>{
+        localStorage.setItem("token",res.data.token)
+         if(res.data.role=="admin"){
+        navigate("/admin")
+        }else{
+          navigate("/") 
+        } 
+        toast.success("Login succesfully");
+        setIsloading(false)
+
+      }).catch((err)=>{
+        console.log(err);
+        
+      });
+      setIsloading(false)
+    },
+    onError:()=>{toast.error(" Google login fail")},
+    onNonOAuthError:()=>{toast.error("Google loging failed")}
+  })
 
    async function login(){
+    setIsloading(true)
     try{
       const res = await axios.post(import.meta.env.VITE_BACKEND_URI+"/user/loginuser",{
         email:email,
@@ -29,10 +57,12 @@ export default function Login() {
         navigate("/") 
       } 
       toast.success("Login succesfully");
+      setIsloading(false)
     }
     catch(err){
       console.log(err);
       toast.error("loging fail");
+      setIsloading(false)
     }  
     
   }
@@ -68,13 +98,16 @@ export default function Login() {
 
           <button 
             onClick={login}
-            className="w-full h-[50px] bg-org text-primmary rounded-lg border-2 border-accent font-bold text-[25px] hover:bg-transparent hover:text-secondary">Login</button>
+            className="w-full h-[50px] bg-org text-primmary rounded-lg border-2 border-accent font-bold text-[25px] hover:bg-transparent hover:text-secondary mb-[20px]">Login</button>
+             <button 
+            onClick={googleloging}
+            className="w-full h-[50px] bg-org text-primmary rounded-lg border-2 border-accent font-bold text-[25px] hover:bg-transparent hover:text-secondary"><div className="flex items-center justify-center gap-2">Login with <GrGoogle/></div></button>
 
           <p className="text-primmary">Don't have an account? <Link to="/register" className="italic">Register hear</Link></p>
 
         </div>
       </div>
-      
+       {isloading&& <Loder/>}
     </div>
   )
 }

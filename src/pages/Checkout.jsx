@@ -63,9 +63,18 @@ export default function Checkout() {
     <div className="w-full flex flex-col items-center p-[20px]">
         {cart.map((item,index )=>{
             return(
-                <div className="w-[50%] h-[150px] rounded-2xl overflow-hidden shadow-2xl my-1 flex justify-between ">
-                    <img src={item.image} className="h-full aspect-square object-cover"/>
-                    <div className="flex flex-col justify-center p-4 w-[300px] ">
+                <div className="w-full lg:w-[50%] p-[30px] relative lg:h-[150px] h-full rounded-2xl overflow-hidden shadow-2xl my-1 flex justify-between ">
+                    <h1 className="lg:hidden absolute top-0 h-[30px] w-full overflow-hidden font-bold">{item.name}</h1>
+                    <div className="flex flex-col h-full">
+                    <img src={item.image} className="lg:h-full h-[100px] aspect-square object-cover"/>
+                     {
+                        item.lablledPrice>item.price&&(
+                            <h2 className='lg:hidden text-secondary/90 line-through decoration-2 decoration-accent2 text-md mr-2  ' >LKR. {item.lablledPrice.toFixed(2)}</h2>
+                        )
+                    }
+                    <h2 className="text-lg font-semibold text-secondary lg:hidden">LKR.{item.price}</h2>
+                    </div>
+                    <div className="hidden lg:flex flex-col justify-center p-4 w-[300px] ">
                         <h1 className="text-xl text-secondary font-semibold relative hover:[&_.tooltip]:opacity-100">
                         <span className="italic tooltip text-sm text-primmary bg-accent2 rounded-xl p-1 absolute bottom-[-35px] left-0 min-w-[150px] opacity-0">{item.name}</span>
                         {item.name.length>20?
@@ -80,7 +89,7 @@ export default function Checkout() {
                         <h2 className="text-lg font-semibold text-secondary">LKR.{item.price}</h2>
                         <h3 className="text-sm text-secondary/70">{item.productId}</h3>
                     </div>
-                    <div className="h-full flex flex-row items-center gap-4">
+                    <div className="min-h-full flex flex-row items-center gap-4 ml-1">
                         <div className="h-full flex flex-col justify-center items-center">
                             <BsChevronUp className="text-2xl cursor-pointer hover:text-accent transition" onClick={()=>{
                                const copiedcart =[...cart]
@@ -107,8 +116,8 @@ export default function Checkout() {
             )
         })
         }
-        <div className="w-[50%] p-4 rounded-2xl  shadow-2xl my-1 flex flex-wrap items-center overflow-hidden ">
-            <div className="flex flex-col w-[50%] px-2 ">
+        <div className="lg:w-[50%] w-full h-full p-4 rounded-2xl  shadow-2xl my-1 flex flex-wrap items-center overflow-hidden ">
+            <div className="flex flex-col lg:w-[50%] w-full px-2 ">
             <label>Name</label>
             <input 
             type="text"
@@ -117,7 +126,7 @@ export default function Checkout() {
             className=" px-6 py-3 rounded border-2 border-secondary/90 focus:border-accent outline-none transition w-full"/>
             </div>
 
-            <div className="flex flex-col w-[50%] px-2">
+            <div className="flex flex-col lg:w-[50%] w-full px-2">
             <label>Phone no</label>
             <input 
             type="text"
@@ -126,7 +135,7 @@ export default function Checkout() {
             className="px-6 py-3 rounded border-2 border-secondary/90 focus:border-accent outline-none"/>
             </div> 
 
-             <div className="flex flex-col w-full ">
+             <div className="flex flex-col w-full px-2 ">
             <label>Address</label>
             <input 
             type="textarea"
@@ -137,7 +146,7 @@ export default function Checkout() {
 
         </div>
 
-        <div className="w-[50%] h-[150px] rounded-2xl overflow-hidden shadow-2xl my-1 flex justify-between items-center ">
+        <div className="lg:w-[50%] w-full h-[150px] rounded-2xl overflow-hidden shadow-2xl my-1 flex justify-between items-center ">
             <button
              className="self-center ml-4 px-6 py-3 rounded bg-accent text-white transition hover:bg-accent/90"
              onClick={()=>{submitorder()}}>

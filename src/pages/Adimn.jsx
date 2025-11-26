@@ -7,11 +7,38 @@ import Adminproduct from "./adminpages/Adminproduct.jsx";
 import Adminaddproduct from "./adminpages/Adminaddproduct.jsx";
 import Adminupdateproduct from "./adminpages/Adminupdateproduct.jsx";
 import Adminorder from "./adminpages/Adminorder.jsx";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Loder from "../component/Loder.jsx";
 
 export default function Admin(){
+    const[user,setuser]=useState(null);
+    useEffect(()=>{
+       const token = localStorage.getItem("token");
+        if(token == null){
+            window.location.href="/"
+            return
+        }
+        axios.get(import.meta.env.VITE_BACKEND_URI+"/user/getuser",{
+            headers:{
+                Authorization:`Bearer ${token}`,
+            }
+        }).then((response)=>{
+            if(response.data.role=="admin"){
+                setuser(response.data);
+            }else{
+                window.location.href="/"
+            }
+            
+        }).catch(()=>{
+            window.location.href="/loging"; 
+        })
+    },[])
     return(
         <div>
             <div className="w-full h-screen max-h-ful flex flex-row bg-accent2">
+                {user?
+                <>
                 <div className="w-[400px] bg-accent2">
                     <div className="w-full h-[100px] flex items-center">
                         <img src="/creative-computer-logo-template_23-2149201860.png" className="h-[150px]" />
@@ -35,6 +62,7 @@ export default function Admin(){
                         <Route path="/review" element={<h1>review</h1>}/>
                     </Routes>
                 </div>
+                </>:<Loder/>}
             </div>
         </div>
     )

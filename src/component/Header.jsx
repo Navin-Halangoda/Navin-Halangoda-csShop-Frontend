@@ -3,6 +3,8 @@ import { CgShoppingCart } from "react-icons/cg";
 import { CiMenuBurger } from "react-icons/ci";
 import { LuListCollapse } from "react-icons/lu";
 import { Link } from "react-router-dom";
+import Userdata from "./Userdata";
+
 
 export default function Header(){
     const[sidebaropen,setsidebaropen]=useState(false)
@@ -15,6 +17,9 @@ export default function Header(){
             <Link to="/product">Product</Link>
             <Link to="/abouth">Abouth us</Link>
             <Link to="/contact">Contact us</Link>
+        </div>
+        <div className="absolute right-35 top-0 h-full flex items-center hidden lg:flex">
+            <Userdata/>
         </div>
         <Link to='/cart' className="text-center text-white text-2xl p-3 absolute right-4 top-1/2 -translate-y-1/2"><CgShoppingCart/></Link>
         {sidebaropen&&<div className="w-[100vw] h-screen fixed left-0 top-0 bg-black/50 transition-all duration-300 z-20 lg:hidden">
@@ -30,6 +35,7 @@ export default function Header(){
                 <a href="/product" onClick={()=>{setsidebaropen(false)}}>Product</a>
                 <a href="/aboth" onClick={()=>{setsidebaropen(false)}}>Abouth</a>
                 <a href="/contact" onClick={()=>{setsidebaropen(false)}}>Contact</a>
+                <Userdata/>
                 </div>
                 
           

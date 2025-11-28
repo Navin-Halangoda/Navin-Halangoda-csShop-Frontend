@@ -4,6 +4,7 @@ import Productpage from "./Productpage.jsx";
 import Productoverview from "./Productoverview.jsx";
 import Cart from "./Cart.jsx";
 import Checkout from "./Checkout.jsx";
+import Orderspage from "./Orderspage.jsx";
 
 export default function Homepage(){
     return(
@@ -18,6 +19,7 @@ export default function Homepage(){
                     <Route path="/overview/:productId" element={<Productoverview/>}/>
                     <Route path="/cart" element={<Cart/>}/>
                     <Route path="/checkout" element={<Checkout/>}/>
+                    <Route path="/orders" element={<Orderspage/>}/>
                     <Route path="/*" element={<h1>page not found</h1>}/>
                 </Routes>
             </div>            

@@ -5,6 +5,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { GrGoogle } from "react-icons/gr";
 import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
+import Loder from "../component/Loder";
 
 export default function Login() {
   const [email,setemail]= useState("")
@@ -94,7 +95,7 @@ export default function Login() {
             placeholder="your password" 
             className="w-full h-[50px] border-2 border-accent rounded-lg p-[10px] text-[20px]  focus:outline-none focus:ring-org focus:ring-2"/>
 
-          <p className="w-full text-primmary mb-[20px] text-right">Froget your password? <Link to="#" className="italic">Reset here</Link></p>
+          <p className="w-full text-primmary mb-[20px] text-right">Froget your password? <Link to="/forget-password" className="italic">Reset here</Link></p>
 
           <button 
             onClick={login}

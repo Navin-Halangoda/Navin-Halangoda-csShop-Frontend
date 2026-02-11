@@ -20,7 +20,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Categories */}
+     
       <section className="max-w-7xl mx-auto px-6 py-16">
         <h2 className="text-2xl font-semibold mb-8 text-center">
           Shop by Category

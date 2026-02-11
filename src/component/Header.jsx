@@ -11,11 +11,11 @@ export default function Header(){
    return(
     <div className="h-[100px] w-full bg-accent flex flex-row relative items-center">
         <LuListCollapse onClick={()=>{setsidebaropen(true)}} className="text-white text-2xl my-auto ml-1 lg:hidden font-bold"/>
-        <img src="creative-computer-logo-template_23-2149201860.png" className="w-[120px]" />
-        <div className="w-full h-full text-seccondary lg:flex hidden justify-center items-center text-xl gap-[30px]">
+        <img src="logo.png" className="w-[120px]" />
+        <div className="w-full h-full text-primmary lg:flex hidden justify-center items-center text-xl gap-[30px]">
             <Link to="/">Home</Link>
             <Link to="/product">Product</Link>
-            <Link to="/abouth">Abouth us</Link>
+            <Link to="/about">Abouth us</Link>
             <Link to="/contact">Contact us</Link>
         </div>
         <div className="absolute right-35 top-0 h-full flex items-center hidden lg:flex">

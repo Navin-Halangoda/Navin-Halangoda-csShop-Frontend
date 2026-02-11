@@ -12,6 +12,7 @@ export default function Login() {
   const [password,setpassword]=useState("")
   const navigate = useNavigate();
   const[isloading,setIsloading]=useState(false)
+  
   const googleloging =useGoogleLogin({
     onSuccess:(response)=>{
       setIsloading(true);
@@ -47,11 +48,6 @@ export default function Login() {
       console.log(res);
       localStorage.setItem("token",res.data.token)
 
-      if(!res.data.token){
-        toast.error("invalid username or password")
-        return
-      }
-      
       if(res.data.role=="admin"){
         navigate("/admin")
       }else{
@@ -59,12 +55,17 @@ export default function Login() {
       } 
       toast.success("Login succesfully");
       setIsloading(false)
+    }catch (err) {
+    if (err.response?.status === 401) {
+      toast.error("Invalid email or password");
+    } else if (err.response?.status === 403) {
+      toast.error("User is blocked");
+    } else {
+      toast.error("Login failed");
     }
-    catch(err){
-      console.log(err);
-      toast.error("loging fail");
-      setIsloading(false)
-    }  
+  } finally {
+    setIsloading(false);
+  }
     
   }
   return (

@@ -6,6 +6,8 @@ import Cart from "./Cart.jsx";
 import Checkout from "./Checkout.jsx";
 import Orderspage from "./Orderspage.jsx";
 import Home from "./Home.jsx";
+import About from "./About.jsx";
+import Contact from "./Contact.jsx";
 
 export default function Homepage(){
     return(
@@ -14,8 +16,8 @@ export default function Homepage(){
             <div className="w-full min-h-[calc(100%-100px)]">
                 <Routes>
                     <Route path="/" element={<Home/>}/>
-                    <Route path="/abouth" element={<h1>abouth us</h1>}/>
-                    <Route path="/contact" element={<h1>contact</h1>}/>
+                    <Route path="/about" element={<About/>}/>
+                    <Route path="/contact" element={<Contact/>}/>
                     <Route path="/product" element={<Productpage/>}/>
                     <Route path="/overview/:productId" element={<Productoverview/>}/>
                     <Route path="/cart" element={<Cart/>}/>

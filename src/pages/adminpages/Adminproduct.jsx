@@ -139,7 +139,7 @@ export default function Adminproduct(){
                                                 </td>
                                                 <td className="px-6 py-4 ">
                                                     <div className=" gap-2 flex" >
-                                                    <Link to="update-product" className="p-[8px] px-3 rounded-xl bg-accent hover:bg-accent2" state={item}>Edit</Link>
+                                                    <Link to="update-product" className="p-[8px] px-3 rounded-xl bg-accent hover:bg-accent2 text-primmary" state={item}>Edit</Link>
                                                     <ProductDeleteButton productId={item.productId} relode={()=>{setloaded(false)}}/>
                                                     </div>
                                                 </td>

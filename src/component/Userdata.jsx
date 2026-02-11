@@ -26,7 +26,7 @@ export default function Userdata() {
         user?
         <div className='w-[150px] flex flex-row '>
             <img src={user.image} referrerPolicy='no-referrer' className='w-[50px] h-[50px] rounded-full'/>
-            <select className='bg-transparent outline-none ml-2' value={selectedoption}
+            <select className='bg-primmary rounded-xl outline-none ml-2 font-semibold ' value={selectedoption}
              onChange={(e)=>{
                 if(e.target.value=="logout"){
                     localStorage.removeItem("token");
@@ -42,9 +42,9 @@ export default function Userdata() {
                 <option value={"my-order"}>My Order</option>
             </select>
             </div>:
-        <div className='w-[150px] flex flex-row'>
-            <Link to="/loging" className="mx-2  px-4 py-2 bg-white text-accent2 rounded-full">Login</Link>
-            <Link to="/register" className="mx-2 px-4 py-2 bg-white text-accent2 rounded-full">Register</Link>
+        <div className='w-[150px] flex lg:flex-row flex-col '>
+            <Link to="/loging" className="mx-2  px-4 py-2 bg-white text-accent font-semibold rounded-full">Login</Link>
+            <Link to="/register" className="mx-2 px-4 py-2 bg-white text-accent font-semibold rounded-full">Register</Link>
         </div>
     }
       

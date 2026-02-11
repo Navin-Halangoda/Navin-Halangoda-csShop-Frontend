@@ -85,7 +85,7 @@ export default function Adminupdateproduct(){
     return(
         <div className="w-full min-h-full flex justify-center p-[40px] overflow-y-scroll">
             <div className="w-[800px] bg-accent rounded-3xl p-[30px] ">
-                <h1 className="w-full text-[25px] text-secondary mb-[10px] font-bold gap-[10px] flex items-center"><AiOutlineProduct/> Update product</h1>
+                <h1 className="w-full text-[25px] text-primmary mb-[10px] font-bold gap-[10px] flex items-center"><AiOutlineProduct/> Update product</h1>
                 <div className="bg-primmary p-[20px] w-full flex flex-wrap justify-between rounded-xl shadow-2xl">
                     <div className="my-[10px] w-[45%]">
                         <label>Product Id</label>

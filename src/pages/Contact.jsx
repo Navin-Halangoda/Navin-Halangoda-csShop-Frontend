@@ -19,7 +19,7 @@ export default function Contact() {
 
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URI}/contact`,
+        `${import.meta.env.VITE_BACKEND_URI}/messages`,
         { name, email, subject, message }
       );
 
